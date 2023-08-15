@@ -15,7 +15,7 @@ namespace ToDoApi.Controllers
             _toDoRepository = toDoRepository;
         }
 
-        [HttpGet("{todoId}")]
+        [HttpGet("/api/ToDo/GetToDoById/{todoId}", Name = "")]
         [ProducesResponseType(200, Type = typeof(ToDo))]
         public IActionResult GetToDo(int todoId)
         {
@@ -34,7 +34,7 @@ namespace ToDoApi.Controllers
             return Ok(todo);
         }
 
-        [HttpGet]
+        [HttpGet("/api/ToDo/GetAllToDos")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<ToDo>))]
         public IActionResult GetToDos()
         {
@@ -47,7 +47,7 @@ namespace ToDoApi.Controllers
             return Ok(todos);
         }
 
-        [HttpPost]
+        [HttpPost("/api/ToDo/CreateToDo")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public IActionResult CreateToDo([FromBody] string todoTask)
@@ -57,23 +57,44 @@ namespace ToDoApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var todoToCreate = new ToDo
+            if(!_toDoRepository.CreateToDo (todoTask))
             {
-                Task = todoTask,
-                CreatedAt=DateTime.Now
-            };
+                ModelState.AddModelError("", "Something went wrong while savin");
+                return StatusCode(500, ModelState);
+            }
 
-            if(!_toDoRepository.CreateToDo (todoToCreate))
+            return Ok("Successfully created");
+        }
+
+        [HttpPut("/api/ToDo/UpdateToDo/{todoId}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult UpdateToDo(int todoId, [FromBody] ToDo updatedToDo)
+        {
+            if (updatedToDo == null)
+                return BadRequest(ModelState);
+
+            if (todoId != updatedToDo.Id)
+                return BadRequest(ModelState);
+
+            if (!_toDoRepository.ToDoExists(todoId))
+                return NotFound();
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_toDoRepository.UpdateToDo(updatedToDo))
             {
-                ModelState.AddModelError("", "Something went wrong saving toDo");
+                ModelState.AddModelError("", "Something went wrong updating category");
+                return StatusCode(500, ModelState);
             }
 
             return NoContent();
         }
 
 
-
-        [HttpDelete("{todoId}")]
+        [HttpDelete("/api/ToDo/DeleteToDo/{todoId}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

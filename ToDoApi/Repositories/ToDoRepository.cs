@@ -19,9 +19,19 @@ namespace ToDoApi.Repositories
         {
             return _context.ToDo.OrderBy(p => p.Id).ToList();
         }
-        public bool CreateToDo (ToDo todo)
+        public bool CreateToDo (string todoTask)
         {
-            _context.Add(todo);
+            var todoToCreate = new ToDo
+            {
+                Task = todoTask,
+                CreatedAt = DateTime.Now
+            };
+            _context.Add(todoToCreate);
+            return Save();
+        }
+        public bool UpdateToDo(ToDo todo)
+        {
+            _context.Update(todo);
             return Save();
         }
         public bool DeleteToDo(ToDo todo)
