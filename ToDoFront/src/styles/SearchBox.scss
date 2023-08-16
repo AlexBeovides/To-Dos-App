@@ -1,0 +1,11 @@
+@import '_variables.scss';
+
+.sbox-input {
+    border-radius: 5px;
+    border: none;
+}
+
+.sbox-input::placeholder {
+    font-family: $bodyFont;  
+    
+}

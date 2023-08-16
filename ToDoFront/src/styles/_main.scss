@@ -1,0 +1,24 @@
+@import '_variables.scss';
+
+// .main-container {
+    
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+// }
+
+* {
+    box-sizing: border-box;
+  }
+  
+body,html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    // font-family: $bodyFont;
+}
+
+.main-container {
+    overflow-x: hidden;
+    background-color: $fc-light;
+}

@@ -1,0 +1,9 @@
+@import '_variables.scss';
+
+.top-section {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $fc-dark;
+    height: 14vh;
+}

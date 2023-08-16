@@ -1,0 +1,15 @@
+@import '_variables.scss';
+
+.tbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    width: 100vw; 
+    margin-top: 3.5vh; 
+}
+
+.tbox-input {
+    height: 100%;
+    width: 80%;
+}
