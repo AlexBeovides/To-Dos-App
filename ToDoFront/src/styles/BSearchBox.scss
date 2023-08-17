@@ -1,21 +1,30 @@
 @import '_variables.scss';
 
-.bbox-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.bbox-container { 
+    position: relative;
     height: 6vh;
-    width: 100vw;
-    margin-top: 3vh; 
+    width: 80vw;
+    display: flex;
+    align-items: center; 
+    margin-top: 3vh;
+    margin-left: 14vw;         ////////////////////////////////////////
 }
 
-.bbox-input {
+.bbox-input { 
     height: 100%;
-    width: 80%;
+    width: 100%;
 }
 
-.b-button {
+.b-button { 
     width: 3.5vh;
     height: 3.5vh; 
     background-image: url("../assets/send.png");
+}
+
+@media (min-width: 700px ) {
+
+    .bbox-container{
+        margin-left: 10.7vw;       //////////////////////////////
+    }
+    
 }

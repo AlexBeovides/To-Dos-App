@@ -9,3 +9,22 @@
     height: 14vh;
     box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
 }
+
+.logo-container {
+    color: #d1d3d5; 
+    font-family: $bodyFont;
+    font-size: large;
+    margin: 10px 0 0 17px; 
+    position: fixed;
+    display: inline-block;
+}
+
+
+.logo-container::after {
+    content: ''; /* Create a pseudo-element for the underline */
+    position: absolute; /* Position the underline absolutely */
+    bottom: -0.5px; /* Adjust this value to move the underline down */
+    left: -5%;
+    width: 110%;
+    border-bottom: 1.5px solid #d1d3d5; /* Adjust color and thickness as needed */
+  }

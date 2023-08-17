@@ -1,17 +1,56 @@
 @import '_variables.scss';
 
-.tbox-container {
+
+.nav-container {
+    width: 80vw;
+    position: absolute;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5vh;
-    width: 100vw; 
-    margin-top: 3.5vh; 
+    flex-direction: column; 
+    align-items: end;
+    bottom: 1.3vh;
+    margin-left: 14vw;      //////////////////////////////
 }
 
-.tbox-input {
+.nav {
+    position: relative; 
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    font-size: small;
+    padding: 6px;
+}
+
+.nav-button { 
+    background-color: transparent; 
+    color: #9CA6AE;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    border-radius: 10px ;
+    padding: 1px 5px;
+}
+
+.active {
+    background-color: $fc-middle; 
+    color: white;
+    
+}
+  
+
+.tbox-container { 
+    display: flex;
+    align-items: center; 
+    height: 5vh;
+    width: 80vw;   
+    
+}
+
+.tbox-input { 
     height: 100%;
-    width: 80%;
+    width: 80vw;
 }
 
 .t-button {
@@ -19,3 +58,28 @@
     height: 3.1vh; 
     background-image: url("../assets/search.png");
 }
+ 
+
+@media (min-width: 700px ) {
+
+.nav-container{
+    margin-left: 10.7vw;      //////////////////////////////
+}
+
+
+}
+
+@media (min-width: 900px ){
+    .nav {
+        position: relative; 
+        width: 30vw;
+    }
+}
+
+@media (min-width: 1200px ){
+    .nav {
+        position: relative; 
+        width: 13vw;
+    }
+}
+

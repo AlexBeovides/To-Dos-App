@@ -15,12 +15,12 @@
 
 .sbox-input::placeholder {
     font-family: $bodyFont;   
-    color: white;
+    color: #9CA6AE;
 }
 
 .button {
-    position:relative; 
-    right: 5vh;
+    position:absolute; 
+    right: 2vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size:contain;

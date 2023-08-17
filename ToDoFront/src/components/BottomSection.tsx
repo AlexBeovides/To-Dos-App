@@ -5,7 +5,6 @@ export function BottomSection() {
     
     return (
       <div className={`bottom-section`}>
-       
         <BSearchBox></BSearchBox>
       </div>
     )
