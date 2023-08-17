@@ -1,9 +1,25 @@
 @import '_variables.scss';
 
 .body-section {
-    
     width: 100%;
-    background-color: $fc-middle;
-    height: 72vh;
-    margin-top: 14vh;
+    height: 74vh;
+    margin-top: 14vh; 
+}
+
+.todos-container {
+    padding-top: 1vh;
+    
+}
+
+.spacer {
+    content: " ";
+    height: 14vh;
+}
+  
+
+@media (min-width: 700px ) {
+    .spacer { 
+        height: 6vh;
+    }
+    
 }

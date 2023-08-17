@@ -1,9 +1,11 @@
 @import '_variables.scss';
 
 .top-section {
+    z-index: 100;
     position: fixed;
     top: 0;
     width: 100%;
     background-color: $fc-dark;
     height: 14vh;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
 }
